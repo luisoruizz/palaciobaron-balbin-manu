@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palacio Barón & Balbín - Menú</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-bg: #F5F0E8;
-            --color-bg-secondary: #EBE5DC;
-            --color-text: #2C2420;
-            --color-text-light: #5C4D42;
-            --color-gold: #C9A961;
-            --color-gold-light: #D4B978;
-            --color-brown: #8B7355;
-            --color-white: #FFFFFF;
-            --shadow: rgba(44, 36, 32, 0.1);
+            --rojo-oscuro: #8B1E1E;
+            --rojo-principal: #A52A2A;
+            --rojo-claro: #C44545;
+            --dorado: #D4AF37;
+            --dorado-claro: #F4D03F;
+            --dorado-oscuro: #B8941F;
+            --blanco: #FFFFFF;
+            --blanco-humo: #F8F8F8;
+            --texto-oscuro: #2C2C2C;
+            --texto-gris: #5A5A5A;
         }
 
         * {
@@ -25,155 +26,239 @@
         }
 
         body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-text);
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--blanco-humo) 0%, var(--blanco) 100%);
+            color: var(--texto-oscuro);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* Header */
+        /* Header Principal */
         .header {
-            background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
-            padding: 2rem 1.5rem;
+            background: linear-gradient(135deg, var(--rojo-oscuro) 0%, var(--rojo-principal) 100%);
+            color: var(--blanco);
+            padding: 2.5rem 1.5rem;
             text-align: center;
-            border-bottom: 3px double var(--color-gold);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px var(--shadow);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(139, 30, 30, 0.3);
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--color-text);
-            margin-bottom: 0.25rem;
-            letter-spacing: 2px;
+        .header::before,
+        .header::after {
+            content: '✦';
+            position: absolute;
+            color: var(--dorado);
+            font-size: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.6;
         }
 
-        .subtitle {
-            font-size: 0.85rem;
-            color: var(--color-brown);
-            font-weight: 300;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+        .header::before {
+            left: 10%;
         }
 
-        .year {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.9rem;
-            color: var(--color-gold);
-            margin-top: 0.5rem;
-            font-style: italic;
+        .header::after {
+            right: 10%;
         }
 
-        /* Controls */
-        .controls {
-            padding: 1.5rem 1rem;
-            background: var(--color-white);
-            position: sticky;
-            top: 120px;
-            z-index: 99;
-            box-shadow: 0 2px 5px var(--shadow);
-        }
-
-        .language-switch {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
+        .logo-container {
             margin-bottom: 1rem;
         }
 
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--dorado);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: var(--blanco);
+        }
+
+        .year-badge {
+            display: inline-block;
+            background: var(--dorado);
+            color: var(--rojo-oscuro);
+            padding: 0.3rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Controls Section */
+        .controls {
+            background: var(--blanco);
+            padding: 1.5rem 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--dorado);
+        }
+
+        .language-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
         .lang-btn {
-            padding: 0.5rem 1.5rem;
-            border: 2px solid var(--color-gold);
-            background: var(--color-white);
-            color: var(--color-text);
-            font-family: 'Lato', sans-serif;
+            padding: 0.6rem 2rem;
+            border: 2px solid var(--rojo-principal);
+            background: var(--blanco);
+            color: var(--rojo-principal);
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            border-radius: 25px;
+            border-radius: 30px;
             font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .lang-btn.active {
-            background: var(--color-gold);
-            color: var(--color-white);
+            background: var(--rojo-principal);
+            color: var(--blanco);
+            box-shadow: 0 4px 12px rgba(165, 42, 42, 0.3);
         }
 
         .lang-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px var(--shadow);
+            box-shadow: 0 4px 12px rgba(165, 42, 42, 0.2);
         }
 
-        .search-container {
+        /* Service Charge Toggle */
+        .service-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--blanco-humo) 0%, var(--blanco) 100%);
+            border-radius: 10px;
+            border: 2px solid var(--dorado);
+        }
+
+        .toggle-label {
+            font-weight: 600;
+            color: var(--texto-oscuro);
+            font-size: 0.95rem;
+        }
+
+        .toggle-switch {
             position: relative;
-            max-width: 400px;
-            margin: 0 auto 1rem;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 0.9rem 1rem 0.9rem 3rem;
-            border: 2px solid var(--color-bg-secondary);
+            width: 60px;
+            height: 30px;
+            background: var(--texto-gris);
             border-radius: 30px;
-            font-family: 'Lato', sans-serif;
-            font-size: 1rem;
-            background: var(--color-bg);
-            transition: all 0.3s ease;
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
 
-        .search-input:focus {
-            outline: none;
-            border-color: var(--color-gold);
-            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.2);
+        .toggle-switch.active {
+            background: var(--dorado);
         }
 
-        .search-icon {
+        .toggle-slider {
             position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--color-brown);
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background: var(--blanco);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(30px);
+        }
+
+        .service-percent {
+            font-weight: 700;
+            color: var(--rojo-principal);
+            font-size: 1.1rem;
+        }
+
+        /* Filters */
         .filters {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.6rem;
             justify-content: center;
         }
 
         .filter-btn {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--color-brown);
-            background: var(--color-white);
-            color: var(--color-text-light);
-            font-family: 'Lato', sans-serif;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--rojo-claro);
+            background: var(--blanco);
+            color: var(--rojo-principal);
+            font-family: 'Montserrat', sans-serif;
             font-size: 0.85rem;
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
-            border-radius: 20px;
-            font-weight: 400;
+            border-radius: 25px;
         }
 
         .filter-btn:hover,
         .filter-btn.active {
-            background: var(--color-gold);
-            color: var(--color-white);
-            border-color: var(--color-gold);
+            background: var(--rojo-principal);
+            color: var(--blanco);
+            border-color: var(--rojo-principal);
+            box-shadow: 0 4px 12px rgba(165, 42, 42, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Main Note */
+        .main-note {
+            background: linear-gradient(135deg, var(--rojo-oscuro) 0%, var(--rojo-principal) 100%);
+            color: var(--blanco);
+            padding: 1.5rem;
+            margin: 2rem 1rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 3px solid var(--dorado);
+            box-shadow: 0 4px 15px rgba(139, 30, 30, 0.2);
+        }
+
+        .main-note strong {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dorado);
+        }
+
+        .main-note p {
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* Menu Container */
         .menu-container {
-            padding: 2rem 1rem;
             max-width: 800px;
             margin: 0 auto;
+            padding: 1rem;
         }
 
+        /* Category Section */
         .category {
             margin-bottom: 3rem;
             animation: fadeIn 0.6s ease;
@@ -183,57 +268,71 @@
             display: none;
         }
 
-        .category-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--color-text);
+        .category-header {
             text-align: center;
-            margin-bottom: 0.5rem;
+            margin-bottom: 2rem;
             position: relative;
-            padding-bottom: 0.5rem;
         }
 
-        .category-title::after {
+        .category-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--rojo-oscuro);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .category-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .category-divider::before,
+        .category-divider::after {
             content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
             width: 60px;
             height: 2px;
-            background: var(--color-gold);
+            background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+        }
+
+        .category-divider span {
+            color: var(--dorado);
+            font-size: 1.5rem;
         }
 
         .category-subtitle {
-            text-align: center;
-            color: var(--color-brown);
-            font-size: 0.9rem;
             font-style: italic;
-            margin-bottom: 1.5rem;
+            color: var(--texto-gris);
+            font-size: 0.95rem;
         }
 
         /* Menu Items */
         .menu-item {
-            background: var(--color-white);
-            padding: 1.25rem;
-            margin-bottom: 1rem;
+            background: var(--blanco);
+            margin-bottom: 1.2rem;
+            padding: 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 2px 8px var(--shadow);
+            border-left: 5px solid var(--dorado);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            border-left: 4px solid transparent;
         }
 
         .menu-item:hover {
-            transform: translateX(5px);
-            border-left-color: var(--color-gold);
-            box-shadow: 0 4px 12px var(--shadow);
+            transform: translateX(8px);
+            box-shadow: 0 5px 20px rgba(139, 30, 30, 0.15);
+            border-left-width: 8px;
         }
 
         .menu-item.hidden {
             display: none;
         }
 
-        .item-header {
+        .item-top {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
@@ -243,91 +342,59 @@
         }
 
         .item-name {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
             font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--color-text);
+            color: var(--rojo-oscuro);
             flex: 1;
+        }
+
+        .item-price-container {
+            text-align: right;
         }
 
         .item-price {
             font-weight: 700;
-            color: var(--color-gold);
-            font-size: 1.1rem;
-            white-space: nowrap;
+            font-size: 1.2rem;
+            color: var(--dorado-oscuro);
+            display: block;
+        }
+
+        .item-price.with-service {
+            color: var(--rojo-principal);
+            font-size: 1.3rem;
+        }
+
+        .price-original {
+            font-size: 0.9rem;
+            color: var(--texto-gris);
+            text-decoration: line-through;
+            display: block;
+            margin-top: -5px;
+        }
+
+        .service-label {
+            font-size: 0.75rem;
+            color: var(--rojo-claro);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .item-description {
-            color: var(--color-text-light);
+            color: var(--texto-gris);
             font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .item-note {
-            font-size: 0.8rem;
-            color: var(--color-brown);
             margin-top: 0.5rem;
             font-style: italic;
         }
 
-        /* Special Note */
-        .special-note {
-            background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg) 100%);
-            border: 2px solid var(--color-gold);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            text-align: center;
-            font-style: italic;
-            color: var(--color-text-light);
-        }
-
-        .special-note strong {
-            color: var(--color-text);
-            display: block;
-            margin-bottom: 0.5rem;
-            font-style: normal;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--color-text);
-            color: var(--color-white);
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 3rem;
-        }
-
-        .service-charge {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: var(--color-gold-light);
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-text {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* No results */
+        /* No Results */
         .no-results {
             text-align: center;
             padding: 3rem 1rem;
-            color: var(--color-text-light);
+            color: var(--texto-gris);
             font-style: italic;
+            font-size: 1.1rem;
             display: none;
         }
 
@@ -335,64 +402,115 @@
             display: block;
         }
 
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--rojo-oscuro) 0%, var(--rojo-principal) 100%);
+            color: var(--blanco);
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            margin-top: 3rem;
+            border-top: 5px solid var(--dorado);
+        }
+
+        .footer-service {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dorado);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-location {
+            font-style: italic;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Responsive */
         @media (max-width: 480px) {
             .logo {
+                font-size: 1.8rem;
+                letter-spacing: 2px;
+            }
+
+            .category-title {
                 font-size: 1.5rem;
             }
-            
-            .category-title {
-                font-size: 1.3rem;
-            }
-            
-            .menu-item {
-                padding: 1rem;
-            }
-            
+
             .item-name {
-                font-size: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .menu-item {
+                padding: 1.2rem;
+            }
+
+            .header::before,
+            .header::after {
+                display: none;
             }
         }
 
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
+        /* Price highlight animation */
+        @keyframes priceHighlight {
+            0% { background-color: var(--dorado-claro); }
+            100% { background-color: transparent; }
         }
 
-        /* Loading state */
-        .loading {
-            text-align: center;
-            padding: 3rem;
-            color: var(--color-brown);
+        .price-updated {
+            animation: priceHighlight 0.5s ease;
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1 class="logo">BARÓN & BALBÍN</h1>
-        <p class="subtitle">Palacio • Bar • Restaurante</p>
-        <p class="year">Cienfuegos, Cuba • 1912</p>
+        <div class="logo-container">
+            <h1 class="logo">Barón & Balbín</h1>
+            <p class="subtitle">Palacio • Bar • Restaurante</p>
+        </div>
+        <div class="year-badge">Cienfuegos, Cuba • 1912</div>
     </header>
 
     <div class="controls">
-        <div class="language-switch">
+        <div class="language-toggle">
             <button class="lang-btn active" data-lang="es">Español</button>
             <button class="lang-btn" data-lang="en">English</button>
         </div>
-        
-        <div class="search-container">
-            <span class="search-icon">🔍</span>
-            <input type="text" class="search-input" id="searchInput" data-placeholder-es="Buscar platos..." data-placeholder-en="Search dishes...">
+
+        <div class="service-toggle">
+            <span class="toggle-label" data-label-es="Incluir servicio 10%" data-label-en="Include 10% service">Incluir servicio 10%</span>
+            <div class="toggle-switch" id="serviceToggle">
+                <div class="toggle-slider"></div>
+            </div>
+            <span class="service-percent">10%</span>
         </div>
-        
+
         <div class="filters" id="filters">
             <button class="filter-btn active" data-filter="all" data-name-es="Todos" data-name-en="All">Todos</button>
             <button class="filter-btn" data-filter="entrantes" data-name-es="Entrantes" data-name-en="Appetizers">Entrantes</button>
             <button class="filter-btn" data-filter="platos-fuertes" data-name-es="Platos Fuertes" data-name-en="Main Courses">Platos Fuertes</button>
-            <button class="filter-btn" data-filter="arroces" data-name-es="Arroces" data-name-en="Rice Dishes">Arroces</button>
-            <button class="filter-btn" data-filter="especialidad" data-name-es="Especialidad" data-name-en="Chef's Special">Especialidad</button>
+            <button class="filter-btn" data-filter="arroces" data-name-es="Arroces" data-name-en="Rice">Arroces</button>
+            <button class="filter-btn" data-filter="especialidad" data-name-es="Especialidad" data-name-en="Special">Especialidad</button>
             <button class="filter-btn" data-filter="pizzas" data-name-es="Pizzas" data-name-en="Pizzas">Pizzas</button>
-            <button class="filter-btn" data-filter="pastas" data-name-es="Pastas" data-name-en="Pasta & Sandwiches">Pastas</button>
+            <button class="filter-btn" data-filter="pastas" data-name-es="Pastas" data-name-en="Pasta">Pastas</button>
             <button class="filter-btn" data-filter="postres" data-name-es="Postres" data-name-en="Desserts">Postres</button>
             <button class="filter-btn" data-filter="cafes" data-name-es="Cafés" data-name-en="Coffee">Cafés</button>
             <button class="filter-btn" data-filter="bebidas" data-name-es="Bebidas" data-name-en="Drinks">Bebidas</button>
@@ -400,607 +518,724 @@
         </div>
     </div>
 
-    <div class="menu-container">
-        <div class="special-note" data-note-es="Cada plato principal viene acompañado de arroz amarillo, vianda y ensalada de vegetales." data-note-en="Each main course is served with yellow rice, root vegetables, and vegetable salad.">
-            <strong>Nota / Note:</strong>
-            <span data-note-es="Cada plato principal viene acompañado de arroz amarillo, vianda y ensalada de vegetales." data-note-en="Each main course is served with yellow rice, root vegetables, and vegetable salad."></span>
-        </div>
+    <div class="main-note">
+        <strong data-note-title-es="Nota Especial" data-note-title-en="Special Note">Nota Especial</strong>
+        <p data-note-text-es="Cada plato principal viene acompañado de arroz amarillo, vianda y ensalada de vegetales." 
+           data-note-text-en="Each main course is served with yellow rice, root vegetables, and vegetable salad.">
+            Cada plato principal viene acompañado de arroz amarillo, vianda y ensalada de vegetales.
+        </p>
+    </div>
 
+    <div class="menu-container">
         <!-- Entrantes -->
         <section class="category" data-category="entrantes">
-            <h2 class="category-title" data-title-es="Entrantes" data-title-en="Appetizers">Entrantes</h2>
-            <p class="category-subtitle" data-subtitle-es="Aperitivos" data-subtitle-en="Starters">Aperitivos</p>
-            
-            <div class="menu-item" data-tags="tostones plantain">
-                <div class="item-header">
+            <div class="category-header">
+                <h2 class="category-title" data-title-es="Entrantes" data-title-en="Appetizers">Entrantes</h2>
+                <div class="category-divider"><span>❖</span></div>
+                <p class="category-subtitle" data-subtitle-es="Aperitivos" data-subtitle-en="Starters">Aperitivos</p>
+            </div>
+
+            <div class="menu-item" data-price="500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Tostones naturales" data-name-en="Plain fried green plantains">Tostones naturales</span>
                     </h3>
-                    <span class="item-price">500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">500 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="croquetas croquettes">
-                <div class="item-header">
+            <div class="menu-item" data-price="600">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Croquetas Balbín" data-name-en="Balbín house croquettes">Croquetas Balbín</span>
                     </h3>
-                    <span class="item-price">600 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">600 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="chicharritas plantain chips">
-                <div class="item-header">
+            <div class="menu-item" data-price="600">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Chicharritas" data-name-en="Plantain chips">Chicharritas</span>
                     </h3>
-                    <span class="item-price">600 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">600 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="tostones rellenos stuffed ham cheese">
-                <div class="item-header">
+            <div class="menu-item" data-price="700">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Tostones rellenos de jamón y queso Gouda" data-name-en="Stuffed plantains with ham and Gouda cheese">Tostones rellenos de jamón y queso Gouda</span>
                     </h3>
-                    <span class="item-price">700 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">700 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="yuca cassava pork cracklings">
-                <div class="item-header">
+            <div class="menu-item" data-price="700">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Yuca con empellea de cerdo" data-name-en="Cassava with pork cracklings">Yuca con empellea de cerdo</span>
                     </h3>
-                    <span class="item-price">700 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">700 CUP</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Platos Fuertes -->
         <section class="category" data-category="platos-fuertes">
-            <h2 class="category-title" data-title-es="Platos Fuertes" data-title-en="Main Courses">Platos Fuertes</h2>
-            
-            <div class="menu-item" data-tags="pollo chicken frito fried">
-                <div class="item-header">
+            <div class="category-header">
+                <h2 class="category-title" data-title-es="Platos Fuertes" data-title-en="Main Courses">Platos Fuertes</h2>
+                <div class="category-divider"><span>❖</span></div>
+            </div>
+
+            <div class="menu-item" data-price="2500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Pollo frito" data-name-en="Fried chicken">Pollo frito</span>
                     </h3>
-                    <span class="item-price">2500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">2500 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="bistec beef cebolla onions">
-                <div class="item-header">
+            <div class="menu-item" data-price="2500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Bistec de pollo encebollado" data-name-en="Chicken steak with sautéed onions">Bistec de pollo encebollado</span>
                     </h3>
-                    <span class="item-price">2500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">2500 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="fajitas pollo chicken">
-                <div class="item-header">
+            <div class="menu-item" data-price="2500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Fajitas de pollo" data-name-en="Chicken fajitas">Fajitas de pollo</span>
                     </h3>
-                    <span class="item-price">2500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">2500 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="bistec cerdo pork sautéed onions">
-                <div class="item-header">
+            <div class="menu-item" data-price="2500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Bistec de cerdo encebollado" data-name-en="Pork steak with sautéed onions">Bistec de cerdo encebollado</span>
                     </h3>
-                    <span class="item-price">2500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">2500 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="bistec ajo garlic pork">
-                <div class="item-header">
+            <div class="menu-item" data-price="2500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Bistec de cerdo al ajillo" data-name-en="Garlic pork steak">Bistec de cerdo al ajillo</span>
                     </h3>
-                    <span class="item-price">2500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">2500 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="ropa vieja shredded beef stew">
-                <div class="item-header">
+            <div class="menu-item" data-price="2500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Ropa vieja" data-name-en="Shredded beef stew">Ropa vieja</span>
                     </h3>
-                    <span class="item-price">2500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">2500 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="pescado fish day">
-                <div class="item-header">
+            <div class="menu-item" data-price="2500">
+                <div class="item-top">
                     <h3 class="item-name">
-                        <span data-name-es="Pescado / Fish of the day" data-name-en="Fish of the day">Pescado / Fish of the day</span>
+                        <span data-name-es="Pescado del día" data-name-en="Fish of the day">Pescado del día</span>
                     </h3>
-                    <span class="item-price">2500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">2500 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="camarones empanizados breaded shrimp">
-                <div class="item-header">
+            <div class="menu-item" data-price="3000">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Camarones empanizados" data-name-en="Breaded shrimp">Camarones empanizados</span>
                     </h3>
-                    <span class="item-price">3000 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">3000 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="camarones enchilados shrimp spicy Creole">
-                <div class="item-header">
+            <div class="menu-item" data-price="3000">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Camarones enchilados" data-name-en="Shrimp in spicy Creole sauce">Camarones enchilados</span>
                     </h3>
-                    <span class="item-price">3000 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">3000 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="langosta grilled lobster tail">
-                <div class="item-header">
+            <div class="menu-item" data-price="3500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Langosta grillé" data-name-en="Grilled lobster tail">Langosta grillé</span>
                     </h3>
-                    <span class="item-price">3500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">3500 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="langosta enchilada lobster Creole">
-                <div class="item-header">
+            <div class="menu-item" data-price="3500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Langosta enchilada" data-name-en="Lobster tail in Creole sauce">Langosta enchilada</span>
                     </h3>
-                    <span class="item-price">3500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">3500 CUP</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Arroces -->
         <section class="category" data-category="arroces">
-            <h2 class="category-title" data-title-es="Arroces" data-title-en="Rice Dishes">Arroces</h2>
-            
-            <div class="menu-item" data-tags="arroz blanco white rice">
-                <div class="item-header">
+            <div class="category-header">
+                <h2 class="category-title" data-title-es="Arroces" data-title-en="Rice Dishes">Arroces</h2>
+                <div class="category-divider"><span>❖</span></div>
+            </div>
+
+            <div class="menu-item" data-price="200">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Arroz blanco" data-name-en="White rice">Arroz blanco</span>
                     </h3>
-                    <span class="item-price">200 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">200 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="arroz amarillo yellow rice">
-                <div class="item-header">
+            <div class="menu-item" data-price="250">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Arroz amarillo" data-name-en="Yellow rice">Arroz amarillo</span>
                     </h3>
-                    <span class="item-price">250 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">250 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="arroz moro black beans rice">
-                <div class="item-header">
+            <div class="menu-item" data-price="450">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Arroz moro" data-name-en="Black beans and rice mixed">Arroz moro</span>
                     </h3>
-                    <span class="item-price">450 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">450 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="arroz frito natural regular fried rice">
-                <div class="item-header">
+            <div class="menu-item" data-price="2000">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Arroz frito natural" data-name-en="Regular fried rice">Arroz frito natural</span>
                     </h3>
-                    <span class="item-price">2000 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">2000 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="arroz frito especial special house fried rice">
-                <div class="item-header">
+            <div class="menu-item" data-price="2800">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Arroz frito especial" data-name-en="Special house fried rice">Arroz frito especial</span>
                     </h3>
-                    <span class="item-price">2800 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">2800 CUP</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Especialidad -->
         <section class="category" data-category="especialidad">
-            <h2 class="category-title" data-title-es="Especialidad de la Casa" data-title-en="Chef's Special">Especialidad de la Casa</h2>
-            
-            <div class="menu-item" data-tags="paella seafood signature">
-                <div class="item-header">
+            <div class="category-header">
+                <h2 class="category-title" data-title-es="Especialidad de la Casa" data-title-en="Chef's Special">Especialidad de la Casa</h2>
+                <div class="category-divider"><span>❖</span></div>
+            </div>
+
+            <div class="menu-item" data-price="3000">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Paella Barón y Balbín" data-name-en="Barón & Balbín signature seafood paella">Paella Barón y Balbín</span>
                     </h3>
-                    <span class="item-price">3000 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">3000 CUP</span>
+                    </div>
                 </div>
-                <p class="item-note" data-note-es="Paella especial de mariscos" data-note-en="Special seafood paella">Paella especial de mariscos</p>
+                <p class="item-description" data-desc-es="Paella especial de mariscos" data-desc-en="Special seafood paella">Paella especial de mariscos</p>
             </div>
         </section>
 
         <!-- Pizzas -->
         <section class="category" data-category="pizzas">
-            <h2 class="category-title" data-title-es="Pizzas" data-title-en="Pizzas">Pizzas</h2>
-            
-            <div class="menu-item" data-tags="pizza queso blanco white cheese">
-                <div class="item-header">
+            <div class="category-header">
+                <h2 class="category-title" data-title-es="Pizzas" data-title-en="Pizzas">Pizzas</h2>
+                <div class="category-divider"><span>❖</span></div>
+            </div>
+
+            <div class="menu-item" data-price="1500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Pizza de queso blanco" data-name-en="White cheese pizza">Pizza de queso blanco</span>
                     </h3>
-                    <span class="item-price">1500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">1500 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="pizza queso Gouda Gouda cheese">
-                <div class="item-header">
+            <div class="menu-item" data-price="1800">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Pizza de queso Gouda" data-name-en="Gouda cheese pizza">Pizza de queso Gouda</span>
                     </h3>
-                    <span class="item-price">1800 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">1800 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="pizza jamón queso ham cheese">
-                <div class="item-header">
+            <div class="menu-item" data-price="1800">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Pizza de queso y jamón" data-name-en="Ham and cheese pizza">Pizza de queso y jamón</span>
                     </h3>
-                    <span class="item-price">1800 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">1800 CUP</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pastas & Sándwiches -->
+        <!-- Pastas -->
         <section class="category" data-category="pastas">
-            <h2 class="category-title" data-title-es="Pastas & Sándwiches" data-title-en="Pasta & Sandwiches">Pastas & Sándwiches</h2>
-            
-            <div class="menu-item" data-tags="sándwich jamón queso ham cheese sandwich">
-                <div class="item-header">
+            <div class="category-header">
+                <h2 class="category-title" data-title-es="Pastas & Sándwiches" data-title-en="Pasta & Sandwiches">Pastas & Sándwiches</h2>
+                <div class="category-divider"><span>❖</span></div>
+            </div>
+
+            <div class="menu-item" data-price="600">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Sándwich de jamón y queso" data-name-en="Ham and cheese sandwich">Sándwich de jamón y queso</span>
                     </h3>
-                    <span class="item-price">600 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">600 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="espaguetis jamón queso ham cheese spaghetti">
-                <div class="item-header">
+            <div class="menu-item" data-price="1500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Espaguetis de jamón y queso" data-name-en="Ham and cheese spaghetti">Espaguetis de jamón y queso</span>
                     </h3>
-                    <span class="item-price">1500 CUP</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Agregados -->
-        <section class="category" data-category="agregados">
-            <h2 class="category-title" data-title-es="Agregados" data-title-en="Extra Toppings">Agregados</h2>
-            
-            <div class="menu-item" data-tags="piña pineapple">
-                <div class="item-header">
-                    <h3 class="item-name">
-                        <span data-name-es="Piña" data-name-en="Pineapple">Piña</span>
-                    </h3>
-                    <span class="item-price">600 CUP</span>
-                </div>
-            </div>
-
-            <div class="menu-item" data-tags="ají pimiento bell pepper">
-                <div class="item-header">
-                    <h3 class="item-name">
-                        <span data-name-es="Ají pimiento" data-name-en="Bell pepper">Ají pimiento</span>
-                    </h3>
-                    <span class="item-price">600 CUP</span>
-                </div>
-            </div>
-
-            <div class="menu-item" data-tags="cebolla onion">
-                <div class="item-header">
-                    <h3 class="item-name">
-                        <span data-name-es="Cebolla" data-name-en="Onion">Cebolla</span>
-                    </h3>
-                    <span class="item-price">600 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">1500 CUP</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Postres -->
         <section class="category" data-category="postres">
-            <h2 class="category-title" data-title-es="Postres" data-title-en="Desserts">Postres</h2>
-            
-            <div class="menu-item" data-tags="dulce casero homemade traditional sweet">
-                <div class="item-header">
+            <div class="category-header">
+                <h2 class="category-title" data-title-es="Postres" data-title-en="Desserts">Postres</h2>
+                <div class="category-divider"><span>❖</span></div>
+            </div>
+
+            <div class="menu-item" data-price="200">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Dulce casero" data-name-en="Homemade traditional sweet">Dulce casero</span>
                     </h3>
-                    <span class="item-price">200 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">200 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="flan caramel custard">
-                <div class="item-header">
+            <div class="menu-item" data-price="500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Flan" data-name-en="Caramel flan (Custard)">Flan</span>
                     </h3>
-                    <span class="item-price">500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">500 CUP</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Cafés -->
         <section class="category" data-category="cafes">
-            <h2 class="category-title" data-title-es="Cafés" data-title-en="Coffee Selection">Cafés</h2>
-            
-            <div class="menu-item" data-tags="café americano americano black coffee">
-                <div class="item-header">
+            <div class="category-header">
+                <h2 class="category-title" data-title-es="Cafés" data-title-en="Coffee Selection">Cafés</h2>
+                <div class="category-divider"><span>❖</span></div>
+            </div>
+
+            <div class="menu-item" data-price="150">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Café americano" data-name-en="Americano (Black coffee)">Café americano</span>
                     </h3>
-                    <span class="item-price">150 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">150 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="café expreso espresso">
-                <div class="item-header">
+            <div class="menu-item" data-price="200">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Café expreso" data-name-en="Espresso">Café expreso</span>
                     </h3>
-                    <span class="item-price">200 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">200 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="capuchino cappuccino">
-                <div class="item-header">
+            <div class="menu-item" data-price="200">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Capuchino" data-name-en="Cappuccino">Capuchino</span>
                     </h3>
-                    <span class="item-price">200 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">200 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="cortado espresso warm milk">
-                <div class="item-header">
+            <div class="menu-item" data-price="250">
+                <div class="item-top">
                     <h3 class="item-name">
-                        <span data-name-es="Cortado" data-name-en="Cortado (Espresso with a dash of warm milk)">Cortado</span>
+                        <span data-name-es="Cortado" data-name-en="Cortado (Espresso with warm milk)">Cortado</span>
                     </h3>
-                    <span class="item-price">250 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">250 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="mulato mulato coffee">
-                <div class="item-header">
+            <div class="menu-item" data-price="300">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Mulato" data-name-en="Mulato coffee">Mulato</span>
                     </h3>
-                    <span class="item-price">300 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">300 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="frappuccino frappuccino">
-                <div class="item-header">
+            <div class="menu-item" data-price="350">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Frappuccino" data-name-en="Frappuccino">Frappuccino</span>
                     </h3>
-                    <span class="item-price">350 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">350 CUP</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Bebidas -->
         <section class="category" data-category="bebidas">
-            <h2 class="category-title" data-title-es="Bebidas" data-title-en="Drinks">Bebidas</h2>
-            
-            <div class="menu-item" data-tags="jugo natural fruta fresh fruit juice">
-                <div class="item-header">
+            <div class="category-header">
+                <h2 class="category-title" data-title-es="Bebidas" data-title-en="Drinks">Bebidas</h2>
+                <div class="category-divider"><span>❖</span></div>
+            </div>
+
+            <div class="menu-item" data-price="250">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Jugo natural de fruta" data-name-en="Fresh fruit juice">Jugo natural de fruta</span>
                     </h3>
-                    <span class="item-price">250 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">250 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="agua natural still water">
-                <div class="item-header">
+            <div class="menu-item" data-price="300">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Agua natural (500 ml)" data-name-en="Still water (500 ml)">Agua natural (500 ml)</span>
                     </h3>
-                    <span class="item-price">300 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">300 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="cerveza importada imported beer">
-                <div class="item-header">
+            <div class="menu-item" data-price="400">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Cerveza importada" data-name-en="Imported beer">Cerveza importada</span>
                     </h3>
-                    <span class="item-price">400 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">400 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="refresco enlatado canned soda">
-                <div class="item-header">
+            <div class="menu-item" data-price="400">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Refresco enlatado" data-name-en="Canned soda">Refresco enlatado</span>
                     </h3>
-                    <span class="item-price">400 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">400 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="malta malt beverage">
-                <div class="item-header">
+            <div class="menu-item" data-price="450">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Malta" data-name-en="Malta (Malt beverage)">Malta</span>
                     </h3>
-                    <span class="item-price">450 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">450 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="batido fruta fruit smoothie milkshake">
-                <div class="item-header">
+            <div class="menu-item" data-price="500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Batido de fruta" data-name-en="Fruit smoothie / Milkshake">Batido de fruta</span>
                     </h3>
-                    <span class="item-price">500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">500 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="cerveza nacional domestic beer">
-                <div class="item-header">
+            <div class="menu-item" data-price="600">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Cerveza nacional" data-name-en="Domestic beer">Cerveza nacional</span>
                     </h3>
-                    <span class="item-price">600 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">600 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="malteada malted milkshake">
-                <div class="item-header">
+            <div class="menu-item" data-price="600">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Malteada" data-name-en="Malted milkshake">Malteada</span>
                     </h3>
-                    <span class="item-price">600 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">600 CUP</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Cócteles -->
         <section class="category" data-category="cocteles">
-            <h2 class="category-title" data-title-es="Cócteles" data-title-en="Cocktails">Cócteles</h2>
-            
-            <div class="menu-item" data-tags="caipiriña caipirinha">
-                <div class="item-header">
+            <div class="category-header">
+                <h2 class="category-title" data-title-es="Cócteles" data-title-en="Cocktails">Cócteles</h2>
+                <div class="category-divider"><span>❖</span></div>
+            </div>
+
+            <div class="menu-item" data-price="500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Caipiriña" data-name-en="Caipirinha">Caipiriña</span>
                     </h3>
-                    <span class="item-price">500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">500 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="mojito mojito">
-                <div class="item-header">
+            <div class="menu-item" data-price="500">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Mojito" data-name-en="Mojito">Mojito</span>
                     </h3>
-                    <span class="item-price">500 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">500 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="caipiroska caipiroska">
-                <div class="item-header">
+            <div class="menu-item" data-price="600">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Caipiroska" data-name-en="Caipiroska">Caipiroska</span>
                     </h3>
-                    <span class="item-price">600 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">600 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="caipirísima caipirísima">
-                <div class="item-header">
+            <div class="menu-item" data-price="600">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Caipirísima" data-name-en="Caipirísima">Caipirísima</span>
                     </h3>
-                    <span class="item-price">600 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">600 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="cuba libre cuba libre">
-                <div class="item-header">
+            <div class="menu-item" data-price="600">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Cuba libre" data-name-en="Cuba libre">Cuba libre</span>
                     </h3>
-                    <span class="item-price">600 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">600 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="piña colada virgin non-alcoholic">
-                <div class="item-header">
+            <div class="menu-item" data-price="600">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Piña colada virgen" data-name-en="Virgin piña colada (Non-alcoholic)">Piña colada virgen</span>
                     </h3>
-                    <span class="item-price">600 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">600 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="sangría sangria">
-                <div class="item-header">
+            <div class="menu-item" data-price="600">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Sangría" data-name-en="Sangria">Sangría</span>
                     </h3>
-                    <span class="item-price">600 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">600 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="canchánchara honey lime rum">
-                <div class="item-header">
+            <div class="menu-item" data-price="700">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Canchánchara" data-name-en="Canchánchara (Honey, lime, and rum cocktail)">Canchánchara</span>
                     </h3>
-                    <span class="item-price">700 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">700 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="piña colada alcohol">
-                <div class="item-header">
+            <div class="menu-item" data-price="700">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Piña colada con alcohol" data-name-en="Piña colada (With alcohol)">Piña colada con alcohol</span>
                     </h3>
-                    <span class="item-price">700 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">700 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="old fashioned old fashioned">
-                <div class="item-header">
+            <div class="menu-item" data-price="800">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Old fashioned" data-name-en="Old fashioned">Old fashioned</span>
                     </h3>
-                    <span class="item-price">800 CUP</span>
+                    <div class="item-price-container">
+                        <span class="item-price">800 CUP</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="menu-item" data-tags="chelada michelada beer">
-                <div class="item-header">
+            <div class="menu-item" data-price="0">
+                <div class="item-top">
                     <h3 class="item-name">
                         <span data-name-es="Base de chelada / michelada" data-name-en="Chelada / Michelada mix">Base de chelada / michelada</span>
                     </h3>
-                    <span class="item-price" data-price-es="Precio según cerveza" data-price-en="Price according to beer">Precio según cerveza</span>
+                    <div class="item-price-container">
+                        <span class="item-price" data-price-var-es="Precio según cerveza" data-price-var-en="Price according to beer">Precio según cerveza</span>
+                    </div>
                 </div>
-                <p class="item-note" data-note-es="Al ser base, se suele cobrar con el costo de la cerveza o por separado." data-note-en="As a base, it is usually charged with the cost of the beer or separately.">Al ser base, se suele cobrar con el costo de la cerveza o por separado.</p>
+                <p class="item-description" data-desc-var-es="Al ser base, se suele cobrar con el costo de la cerveza o por separado." data-desc-var-en="As a base, it is usually charged with the cost of the beer or separately.">Al ser base, se suele cobrar con el costo de la cerveza o por separado.</p>
             </div>
         </section>
 
-        <div class="no-results" id="noResults" data-message-es="No se encontraron platos que coincidan con tu búsqueda." data-message-en="No dishes found matching your search.">
-            No se encontraron platos que coincidan con tu búsqueda.
+        <div class="no-results" id="noResults" data-message-es="No se encontraron platos en esta categoría." data-message-en="No dishes found in this category.">
+            No se encontraron platos en esta categoría.
         </div>
     </div>
 
     <footer class="footer">
-        <p class="service-charge" data-service-es="Se añadirá un 10% por concepto de servicio." data-service-en="A 10% service charge will be added.">Se añadirá un 10% por concepto de servicio.</p>
-        <p class="footer-text">Palacio Barón & Balbín • Cienfuegos, Cuba • 1912</p>
+        <p class="footer-service" data-service-es="Se añadirá un 10% por concepto de servicio" data-service-en="A 10% service charge will be added">Se añadirá un 10% por concepto de servicio</p>
+        <p class="footer-text">Palacio Barón & Balbín</p>
+        <p class="footer-location" data-location-es="Cienfuegos, Cuba • Desde 1912" data-location-en="Cienfuegos, Cuba • Since 1912">Cienfuegos, Cuba • Desde 1912</p>
     </footer>
 
     <script>
-        // Language and filter state
+        // State
         let currentLang = 'es';
         let currentFilter = 'all';
-        let searchTerm = '';
+        let includeService = false;
+        const SERVICE_PERCENT = 0.10;
 
         // DOM Elements
-        const searchInput = document.getElementById('searchInput');
-        const filtersContainer = document.getElementById('filters');
-        const noResults = document.getElementById('noResults');
+        const serviceToggle = document.getElementById('serviceToggle');
         const langButtons = document.querySelectorAll('.lang-btn');
         const filterButtons = document.querySelectorAll('.filter-btn');
+        const noResults = document.getElementById('noResults');
 
-        // Language switcher
+        // Service Toggle
+        serviceToggle.addEventListener('click', () => {
+            includeService = !includeService;
+            serviceToggle.classList.toggle('active');
+            updateAllPrices();
+        });
+
+        // Language Switcher
         langButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 currentLang = btn.dataset.lang;
@@ -1010,7 +1245,7 @@
             });
         });
 
-        // Filter buttons
+        // Filter Buttons
         filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 currentFilter = btn.dataset.filter;
@@ -1019,15 +1254,8 @@
             });
         });
 
-        // Search input
-        searchInput.addEventListener('input', (e) => {
-            searchTerm = e.target.value.toLowerCase();
-            filterMenu();
-        });
-
-        // Update language
+        // Update Language
         function updateLanguage() {
-            // Update lang buttons
             langButtons.forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.lang === currentLang);
             });
@@ -1045,12 +1273,28 @@
                 el.textContent = currentLang === 'es' ? el.dataset.subtitleEs : el.dataset.subtitleEn;
             });
 
-            document.querySelectorAll('[data-note-es]').forEach(el => {
-                el.textContent = currentLang === 'es' ? el.dataset.noteEs : el.dataset.noteEn;
+            document.querySelectorAll('[data-desc-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.dataset.descEs : el.dataset.descEn;
             });
 
-            document.querySelectorAll('[data-price-es]').forEach(el => {
-                el.textContent = currentLang === 'es' ? el.dataset.priceEs : el.dataset.priceEn;
+            document.querySelectorAll('[data-desc-var-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.dataset.descVarEs : el.dataset.descVarEn;
+            });
+
+            document.querySelectorAll('[data-price-var-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.dataset.priceVarEs : el.dataset.priceVarEn;
+            });
+
+            document.querySelectorAll('[data-note-title-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.dataset.noteTitleEs : el.dataset.noteTitleEn;
+            });
+
+            document.querySelectorAll('[data-note-text-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.dataset.noteTextEs : el.dataset.noteTextEn;
+            });
+
+            document.querySelectorAll('[data-label-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.dataset.labelEs : el.dataset.labelEn;
             });
 
             document.querySelectorAll('[data-message-es]').forEach(el => {
@@ -1061,31 +1305,60 @@
                 el.textContent = currentLang === 'es' ? el.dataset.serviceEs : el.dataset.serviceEn;
             });
 
-            // Update search placeholder
-            const placeholder = currentLang === 'es' ? 
-                searchInput.dataset.placeholderEs : 
-                searchInput.dataset.placeholderEn;
-            searchInput.placeholder = placeholder;
+            document.querySelectorAll('[data-location-es]').forEach(el => {
+                el.textContent = currentLang === 'es' ? el.dataset.locationEs : el.dataset.locationEn;
+            });
 
-            // Update filter buttons text
             updateFilterButtons();
+            updateAllPrices();
         }
 
-        // Update filter buttons text
+        // Update Filter Buttons Text
         function updateFilterButtons() {
             filterButtons.forEach(btn => {
                 btn.textContent = currentLang === 'es' ? btn.dataset.nameEs : btn.dataset.nameEn;
-            });
-        }
-
-        // Update active filter button
-        function updateFilterButtons() {
-            filterButtons.forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.filter === currentFilter);
             });
         }
 
-        // Filter menu
+        // Calculate Price with Service
+        function calculatePrice(basePrice) {
+            if (basePrice === 0) return null; // For variable prices
+            if (includeService) {
+                return Math.round(basePrice * (1 + SERVICE_PERCENT));
+            }
+            return basePrice;
+        }
+
+        // Update All Prices
+        function updateAllPrices() {
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            menuItems.forEach(item => {
+                const basePrice = parseInt(item.dataset.price);
+                const priceContainer = item.querySelector('.item-price-container');
+                const priceElement = priceContainer.querySelector('.item-price');
+                
+                // Skip variable price items
+                if (item.dataset.price === "0") return;
+                
+                const newPrice = calculatePrice(basePrice);
+                
+                if (includeService) {
+                    // Show both prices
+                    priceContainer.innerHTML = `
+                        <span class="item-price with-service price-updated">${newPrice} CUP</span>
+                        <span class="price-original">${basePrice} CUP</span>
+                        <span class="service-label">${currentLang === 'es' ? 'con servicio' : 'with service'}</span>
+                    `;
+                } else {
+                    // Show only base price
+                    priceContainer.innerHTML = `<span class="item-price price-updated">${basePrice} CUP</span>`;
+                }
+            });
+        }
+
+        // Filter Menu
         function filterMenu() {
             let visibleItems = 0;
             const categories = document.querySelectorAll('.category');
@@ -1095,15 +1368,9 @@
                 let categoryVisible = false;
 
                 items.forEach(item => {
-                    const matchesFilter = currentFilter === 'all' || 
-                        category.dataset.category === currentFilter ||
-                        (currentFilter === 'agregados' && category.dataset.category === 'agregados');
-                    
-                    const matchesSearch = searchTerm === '' || 
-                        item.dataset.tags.toLowerCase().includes(searchTerm) ||
-                        item.querySelector('.item-name span').textContent.toLowerCase().includes(searchTerm);
+                    const matchesFilter = currentFilter === 'all' || category.dataset.category === currentFilter;
 
-                    if (matchesFilter && matchesSearch) {
+                    if (matchesFilter) {
                         item.classList.remove('hidden');
                         categoryVisible = true;
                         visibleItems++;
@@ -1115,24 +1382,12 @@
                 category.classList.toggle('hidden', !categoryVisible);
             });
 
-            // Show/hide no results message
             noResults.classList.toggle('show', visibleItems === 0);
         }
 
         // Initialize
         updateLanguage();
         filterMenu();
-
-        // Smooth scroll for category links (if needed in future)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
     </script>
 </body>
 </html>
