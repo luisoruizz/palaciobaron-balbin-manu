@@ -5,35 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Menú del Palacio Barón & Balbín — Bar · Restaurante · Hostal, Cienfuegos">
   <title>Menú — Palacio Barón & Balbín</title>
-  <!-- Motherlane via CDN -->
-  <link href="https://db.onlinewebfonts.com/c/446538c03d3d331c6a2d50b166cc2826?family=Demo+Motherlane" rel="stylesheet">
-
-  <!--
-    SLTF Night Windfall Serif es una fuente comercial (SilverStag Type Foundry).
-    Para que cargue, sube el archivo de fuente al repositorio en la carpeta /fonts/:
-      fonts/SLTFNightWindfallSerif.ttf  (o .woff2)
-  -->
-  <style>
-    @font-face {
-      font-family: 'SLTF Night Windfall Serif';
-      src: url('fonts/SLTFNightWindfallSerif.woff2') format('woff2'),
-           url('fonts/SLTFNightWindfallSerif.woff') format('woff'),
-           url('fonts/SLTFNightWindfallSerif.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'SLTF Night Windfall Serif';
-      src: url('fonts/SLTFNightWindfallSerif-Italic.woff2') format('woff2'),
-           url('fonts/SLTFNightWindfallSerif-Italic.woff') format('woff'),
-           url('fonts/SLTFNightWindfallSerif-Italic.ttf') format('truetype');
-      font-weight: normal;
-      font-style: italic;
-      font-display: swap;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Playfair+Display+SC:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
   <style>
     :root {
       --parchment:      #f0deb4;
@@ -52,7 +25,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'SLTF Night Windfall Serif', Georgia, serif;
+      font-family: 'EB Garamond', Georgia, serif;
       background-color: var(--parchment);
       color: var(--brown);
       min-height: 100vh;
@@ -97,7 +70,7 @@
       padding: 0.65rem 0.9rem;
       color: var(--gold-light);
       text-decoration: none;
-      font-family: 'SLTF Night Windfall Serif', serif;
+      font-family: 'Playfair Display SC', serif;
       letter-spacing: 0.1em;
       white-space: nowrap;
       transition: color 0.2s, background 0.2s;
@@ -118,7 +91,7 @@
     }
 
     .restaurant-name {
-      font-family: 'Demo Motherlane', Georgia, serif;
+      font-family: 'EB Garamond', Georgia, serif;
       font-size: clamp(2.8rem, 10vw, 5.5rem);
       color: var(--crimson);
       letter-spacing: 0.04em;
@@ -131,8 +104,7 @@
     }
 
     .restaurant-subtitle {
-      font-family: 'SLTF Night Windfall Serif', serif;
-      font-style: italic;
+      font-family: 'Playfair Display', serif;
       font-size: clamp(0.95rem, 2.5vw, 1.25rem);
       color: var(--brown-mid);
       letter-spacing: 0.25em;
@@ -161,7 +133,7 @@
     }
 
     .menu-headline {
-      font-family: 'Demo Motherlane', serif;
+      font-family: 'Playfair Display SC', serif;
       font-size: clamp(1.5rem, 4.5vw, 2.2rem);
       color: var(--crimson);
       letter-spacing: 0.4em;
@@ -189,7 +161,7 @@
       transform: translateX(-50%);
       background: var(--parchment);
       padding: 0 0.8rem;
-      font-family: 'SLTF Night Windfall Serif', serif;
+      font-family: 'Playfair Display SC', serif;
       font-size: 0.6rem;
       letter-spacing: 0.18em;
       color: var(--gold);
@@ -238,7 +210,7 @@
     }
 
     .band-title {
-      font-family: 'SLTF Night Windfall Serif', serif;
+      font-family: 'Playfair Display SC', serif;
       font-size: clamp(0.95rem, 3vw, 1.25rem);
       letter-spacing: 0.22em;
       white-space: nowrap;
@@ -307,7 +279,7 @@
     }
 
     .item-price {
-      font-family: 'SLTF Night Windfall Serif', serif;
+      font-family: 'Playfair Display', serif;
       font-size: 0.9rem;
       color: var(--crimson);
       font-weight: 600;
@@ -346,7 +318,7 @@
 
     /* ─── SUBSECTION LABEL ─── */
     .sub-label {
-      font-family: 'SLTF Night Windfall Serif', serif;
+      font-family: 'Playfair Display SC', serif;
       font-size: 0.7rem;
       letter-spacing: 0.2em;
       color: var(--gold);
@@ -375,7 +347,7 @@
     }
 
     .full-band p {
-      font-family: 'SLTF Night Windfall Serif', serif;
+      font-family: 'Playfair Display SC', serif;
       color: var(--gold-light);
       font-size: 0.75rem;
       letter-spacing: 0.25em;
@@ -405,7 +377,7 @@
     }
 
     .footer p {
-      font-family: 'Demo Motherlane', serif;
+      font-family: 'Playfair Display', serif;
       font-style: italic;
       color: var(--crimson);
       font-size: 1.05rem;
@@ -990,7 +962,7 @@
     <div class="footer-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
     <p>Se añadirá un 10% por concepto de servicio.</p>
     <em>A 10% service charge will be added.</em>
-    <div style="margin-top:1.2rem; font-family:'SLTF Night Windfall Serif',serif; font-size:0.78rem; color:var(--brown-mid); letter-spacing:0.1em;">
+    <div style="margin-top:1.2rem; font-family:'EB Garamond',serif; font-size:0.78rem; color:var(--brown-mid); letter-spacing:0.1em;">
       Palacio Barón & Balbín &nbsp;·&nbsp; Cienfuegos, Cuba &nbsp;·&nbsp; Est. 1912
     </div>
   </footer>
@@ -1009,6 +981,14 @@
     }, { threshold: 0.08 });
 
     revealEls.forEach(el => observer.observe(el));
+
+    // When a nav link is clicked, immediately make ALL sections visible
+    // so the jump target is never invisible due to the reveal animation
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        revealEls.forEach(el => el.classList.add('visible'));
+      });
+    });
 
     // Highlight active nav link on scroll
     const sections = document.querySelectorAll('.menu-section[id]');
